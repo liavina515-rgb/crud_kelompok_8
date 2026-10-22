@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 
 class MenuKantinController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+   public function index(){
+    $menus = MenuKantin::latest()->get();
+    return view('menu.index', compact('menus'));
+   }
 
     /**
      * Show the form for creating a new resource.
