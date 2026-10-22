@@ -57,6 +57,8 @@ class MenuKantinController extends Controller
      */
     public function destroy(MenuKantin $menuKantin)
     {
-        //
+        $menuKantin->delete();
+        return redirect()->route('menu.index')->with('success', 'Menu Berhasil dihapus');
+
     }
 }
