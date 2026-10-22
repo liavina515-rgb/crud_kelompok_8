@@ -12,28 +12,28 @@ class MenuKantinController extends Controller
     return view('menu.index', compact('menus'));
    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+       return view ('menu.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate(
+            [
+                'kode_menu' => 'required | string | max:10 | unique:menu_kantins,kode_menu',
+                'nama_manu' => 'required | string | max:100',
+                'kategori' => 'required | string | max:255',
+                'harga' => 'required | string | max:0',
+                'stok' => 'required | string | max:0',
+                'status' => 'required | string | max:255',
+                'keterangan' => 'nullable | string | max:100',
+            ]
+        );
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(MenuKantin $menuKantin)
-    {
-        //
+    MenuKantin::create($data);
+
+    return redirect()->route('menu.index')->with('succes','Menu ditambahkan');
     }
 
     /**
