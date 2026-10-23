@@ -25,7 +25,7 @@
                         <td>{{ $menu->kode_menu }}</td>
                         <td>{{ $menu->nama_menu }}</td>
                         <td>{{ $menu->kategori }}</td>
-                        <td>{{ $menu->harga }}</td>
+                        <td>Rp {{ number_format($menu->harga, 0, ',', '.') }}</td>
                         <td>{{ $menu->stok }}</td>
                         <td>{{ $menu->status }}</td>
                         <td>{{ $menu->keterangan }}</td>

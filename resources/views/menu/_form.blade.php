@@ -13,10 +13,9 @@
 <div class="mb-3">
     <label class="form-label">Kategori</label>
     <select name="kategori" class="form-select">
-        @foreach (['Makanan', 'Minuman'] as $k)
         <option value="">Pilih Kategori</option>
-        <option value="Makanan" {{ old('kategori', $menu->kategori ?? '') == 'Makanan' ? 'selected' : '' }}>Makanan</option>
-        <option value="Minuman" {{ old('kategori', $menu->kategori ?? '') == 'Minuman' ? 'selected' : '' }}>Minuman</option>
+        @foreach (['Makanan', 'Minuman','Snack'] as $kategori)
+            <option value="{{ $kategori }}" @@selected(old('kategori', $menu->kategori ?? '') == $kategori)>{{ $kategori }}</option>
         @endforeach
     </select>
 </div>
@@ -34,11 +33,10 @@
 
 <div class="mb-3">
     <label class="form-label">Status</label>
-    <select name="status" class="form-select">
-        @foreach (['Tersedia', 'Habis'] as $s)
+       <select name="status" class="form-select">
         <option value="">Pilih Status</option>
-        <option value="Tersedia" {{ old('status', $menu->status ?? '') == 'Tersedia' ? 'selected' : '' }}>Tersedia</option>
-        <option value="Habis" {{ old('status', $menu->status ?? '') == 'Habis' ? 'selected' : '' }}>Habis</option>
+        @foreach (['Tersedia', 'Habis'] as $status)
+            <option value="{{ $status }}" @@selected(old('status', $menu->status ?? '') == $status)>{{ $status }}</option>
         @endforeach
     </select>
 </div>
@@ -48,9 +46,3 @@
     <textarea name="keterangan" class="form-control">{{ old('keterangan', $menu->keterangan ?? '') }}</textarea>
 
 </div>
-
-
-    <div class="mb-3">
-    <label class="form-label">Gambar</label>
-    <input type="file" name="gambar" class="form-control">
-    </div>
