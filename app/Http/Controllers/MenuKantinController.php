@@ -36,10 +36,8 @@ class MenuKantinController extends Controller
     return redirect()->route('menu.index')->with('succes','Menu ditambahkan');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(MenuKantin $menuKantin)
+
+    public function edit(MenuKantin $menu)
     {
        return view('menu.edit', compact('menu'));
     }
