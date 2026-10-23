@@ -12,7 +12,6 @@ class MenuKantinSeeder extends Seeder
     {
        $menu = [
             [ 'Nasi Goreng', 'Makanan', 15000, 20, 'Tersedia', 'Nasi goreng spesial'],
-            [ 'Ollate', 'Minuman', 10000, 15, 'Tersedia', 'Susu dengan perpaduan rasa buah'],
             [ 'Mie Ayam', 'Makanan', 12000, 15, 'Tersedia', 'Mie ayam dengan kuah kaldu'],
             [ 'Bakso', 'Makanan', 10000, 10, 'Habis', 'Bakso sapi dengan kuah segar'],
             [ 'Soto Ayam', 'Makanan', 13000, 12, 'Tersedia', 'Soto ayam dengan bumbu rempah'],
@@ -31,6 +30,7 @@ class MenuKantinSeeder extends Seeder
             [ 'Sate Ayam', 'Makanan', 18000, 12, 'Tersedia', 'Sate ayam dengan bumbu kacang'],
             [ 'Jus Alpukat', 'Minuman', 12000, 20, 'Tersedia', 'Jus alpukat segar dengan susu'],
             [ 'Jus Mangga', 'Minuman', 12000, 18, 'Tersedia', 'Jus mangga segar dan manis'],
+            [ 'Ollate', 'Minuman', 10000, 15, 'Tersedia', 'Susu dengan perpaduan rasa buah'],
        ];
 
         foreach ($menu as $item => [$nama, $kategori, $harga, $stok, $status, $keterangan]) {
