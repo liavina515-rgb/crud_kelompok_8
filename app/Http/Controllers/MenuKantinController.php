@@ -24,8 +24,8 @@ class MenuKantinController extends Controller
                 'kode_menu' => 'required | string | min:1 | unique:menu_kantins,kode_menu',
                 'nama_menu' => 'required | string | min:1',
                 'kategori' => 'required | string | min:1',
-                'harga' => 'required | string | min:1',
-                'stok' => 'required | string | min:1',
+                'harga' => 'required | numeric | min:1',
+                'stok' => 'required | integer | min:1',
                 'status' => 'required | string | min:1',
                 'keterangan' => 'nullable | string | min:1',
             ]
@@ -41,23 +41,35 @@ class MenuKantinController extends Controller
      */
     public function edit(MenuKantin $menuKantin)
     {
-        //
+       return view('menu.edit', compact('menu'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, MenuKantin $menuKantin)
+
+    public function update(Request $request, MenuKantin $menu)
     {
-        //
+        $data = $request->validate(
+            [
+                'kode_menu' => 'required | string | min:1| unique:menu_kantins,kode_menu,' . $menu->id,
+                'nama_menu' => 'required | string | min:1',
+                'kategori' => 'required | string | min:1',
+                'harga' => 'required | numeric | min:1',
+                'stok' => 'required | integer | min:1',
+                'status' => 'required | string | min:1',
+                'keterangan' => 'nullable | string | min:1',
+            ]
+        );
+
+        $menu->update($data);
+
+        return redirect()->route('menu.index')->with('success', 'Menu Berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MenuKantin $menuKantin)
+    public function destroy(MenuKantin $menu)
     {
-        $menuKantin->delete();
+        $menu->delete();
         return redirect()->route('menu.index')->with('success', 'Menu Berhasil dihapus');
 
     }
