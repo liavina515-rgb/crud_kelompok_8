@@ -12,6 +12,7 @@ class MenuKantinSeeder extends Seeder
     {
        $menu = [
             [ 'Nasi Goreng', 'Makanan', 15000, 20, 'Tersedia', 'Nasi goreng spesial'],
+            [ 'Ollate', 'Minuman', 10000, 15, 'Tersedia', 'Susu dengan perpaduan rasa buah'],
             [ 'Mie Ayam', 'Makanan', 12000, 15, 'Tersedia', 'Mie ayam dengan kuah kaldu'],
             [ 'Bakso', 'Makanan', 10000, 10, 'Habis', 'Bakso sapi dengan kuah segar'],
             [ 'Soto Ayam', 'Makanan', 13000, 12, 'Tersedia', 'Soto ayam dengan bumbu rempah'],
