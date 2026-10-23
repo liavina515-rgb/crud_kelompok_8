@@ -15,7 +15,7 @@
     <select name="kategori" class="form-select">
         <option value="">Pilih Kategori</option>
         @foreach (['Makanan', 'Minuman','Snack'] as $kategori)
-            <option value="{{ $kategori }}" @@selected(old('kategori', $menu->kategori ?? '') == $kategori)>{{ $kategori }}</option>
+            <option value="{{ $kategori }}" @selected(old('kategori', $menu->kategori ?? '') == $kategori)>{{ $kategori }}</option>
         @endforeach
     </select>
 </div>
@@ -36,7 +36,7 @@
        <select name="status" class="form-select">
         <option value="">Pilih Status</option>
         @foreach (['Tersedia', 'Habis'] as $status)
-            <option value="{{ $status }}" @@selected(old('status', $menu->status ?? '') == $status)>{{ $status }}</option>
+            <option value="{{ $status }}" @selected(old('status', $menu->status ?? '') == $status)>{{ $status }}</option>
         @endforeach
     </select>
 </div>
