@@ -20,7 +20,16 @@ class MenuKantinSeeder extends Seeder
             [ 'Es Jeruk', 'Minuman', 7000, 25, 'Tersedia', 'Es jeruk segar dengan perasan jeruk'],
             [ 'Kopi', 'Minuman', 10000, 20, 'Habis', 'Kopi hitam panas atau dingin'],
             [ 'Gorengan', 'Snack', 8000, 40, 'Tersedia', 'Berbagai macam gorengan renyah'],
-            [ 'Salad Buah', 'Snack', 12000, 15, 'Tersedia', 'Salad buah segar dengan saus yogurt']
+            [ 'Salad Buah', 'Snack', 12000, 15, 'Tersedia', 'Salad buah segar dengan saus yogurt'],
+            [ 'Roti Bakar', 'Snack', 15000, 10, 'Tersedia', 'Roti bakar dengan berbagai topping'],
+            [ 'Pisang Goreng', 'Snack', 8000, 20, 'Habis', 'Pisang goreng renyah dengan gula'],
+            [ 'Es Campur', 'Minuman', 12000, 18, 'Tersedia', 'Es campur segar dengan berbagai topping'],
+            [ 'Teh Tarik', 'Minuman', 10000, 22, 'Tersedia', 'Teh tarik manis dan creamy'],
+            [ 'Nasi Uduk', 'Makanan', 15000, 15, 'Tersedia', 'Nasi uduk dengan lauk pauk lengkap'],
+            [ 'Ayam Bakar', 'Makanan', 20000, 10, 'Habis', 'Ayam bakar dengan bumbu khas'],
+            [ 'Sate Ayam', 'Makanan', 18000, 12, 'Tersedia', 'Sate ayam dengan bumbu kacang'],
+            [ 'Jus Alpukat', 'Minuman', 12000, 20, 'Tersedia', 'Jus alpukat segar dengan susu'],
+            [ 'Jus Mangga', 'Minuman', 12000, 18, 'Tersedia', 'Jus mangga segar dan manis'],
        ];
 
         foreach ($menu as $item => [$nama, $kategori, $harga, $stok, $status, $keterangan]) {
