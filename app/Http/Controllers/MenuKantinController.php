@@ -21,13 +21,13 @@ class MenuKantinController extends Controller
     {
         $data = $request->validate(
             [
-                'kode_menu' => 'required | string | max:10 | unique:menu_kantins,kode_menu',
-                'nama_manu' => 'required | string | max:100',
-                'kategori' => 'required | string | max:255',
-                'harga' => 'required | string | max:0',
-                'stok' => 'required | string | max:0',
-                'status' => 'required | string | max:255',
-                'keterangan' => 'nullable | string | max:100',
+                'kode_menu' => 'required | string | min:1 | unique:menu_kantins,kode_menu',
+                'nama_menu' => 'required | string | min:1',
+                'kategori' => 'required | string | min:1',
+                'harga' => 'required | string | min:1',
+                'stok' => 'required | string | min:1',
+                'status' => 'required | string | min:1',
+                'keterangan' => 'nullable | string | min:1',
             ]
         );
 
