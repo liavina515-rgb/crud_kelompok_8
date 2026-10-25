@@ -9,10 +9,15 @@ class MenuKantin extends Model
 {
    use HasFactory;
 
-   protected $fillable = ['nama_menu', 'harga', 'stok', 'deskripsi'];
+   protected $table = 'menus';
 
-   protected $table = [
-    'id' => 'integer',
-    'kode_menu' => 'string',
+   protected $fillable = [
+    'kode_menu',
+    'nama_menu',
+    'kategori',
+    'harga',
+    'stok',
+    'status',
+    'keterangan',
    ];
 }

@@ -20,12 +20,11 @@ return new class extends Migration
             $table->integer('stok');
             $table->string('status');
             $table->text('keterangan')->nullable();
+            $table->timestamps();
                     });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
         Schema::dropIfExists('menus');
