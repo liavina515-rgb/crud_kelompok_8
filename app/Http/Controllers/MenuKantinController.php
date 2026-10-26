@@ -36,14 +36,14 @@ class MenuKantinController extends Controller
             'harga' => 8000,
             'stok' => 15,
             'status' => 'Tersedia',
-            'keterangan' => null,
+            'keterangan' => 'Roti yang lembut diisi dengan coklat dan dibakar menggunakan mentega',
         ],
        ];
    }
     public function index()
     {
         $menus = MenuKantin::latest()->get();
-        return view('menu.index', compact('menus'));
+        return view('menus.index', compact('menus'));
     }
 
     /**
@@ -51,7 +51,7 @@ class MenuKantinController extends Controller
      */
     public function create()
     {
-       return view('menu.create');
+       return view('menus.create');
     }
 
     /**
@@ -59,19 +59,20 @@ class MenuKantinController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
-        'kode_menu'  => ['required', 'string', Rule::unique(MenuKantin::class, 'kode_menu')],
+         'kode_menu' => ['required', 'string', Rule::unique(MenuKantin::class, 'kode_menu')],
         'nama_menu'  => 'required|string|max:100',
-        'kategori'   => 'required|string',
+        'kategori'   => 'required|in:Makanan,Minuman,Snack',
         'harga'      => 'required|integer|min:1',
-        'stok'       => 'required|integer|min:1',
+        'stok'       => 'required|integer|min:0',
         'status'     => 'required|in:Tersedia,Habis',
         'keterangan' => 'nullable|string',
     ]);
 
-     MenuKantin::create($data);
 
-      return redirect()->route('menu.index')->with('success', 'Menu berhasil ditambahkan.');
+      MenuKantin::create($data);
+      return redirect()->route('menus.index')->with('success', 'Menu berhasil ditambahkan.');
     }
 
     /**
@@ -79,7 +80,7 @@ class MenuKantinController extends Controller
      */
     public function show(MenuKantin $menu)
     {
-        //
+         return redirect()->route('menus.edit', $menu);
     }
 
     /**
@@ -87,7 +88,7 @@ class MenuKantinController extends Controller
      */
     public function edit(MenuKantin $menu)
     {
-        return view('menu.edit', compact('menu'));
+        return view('menus.edit', compact('menu'));
     }
 
     /**
@@ -107,7 +108,7 @@ class MenuKantinController extends Controller
 
     $menu->update($data);
 
-    return redirect()->route('menu.index')->with('success', 'Menu berhasil diubah.');
+    return redirect()->route('menus.index')->with('success', 'Menu berhasil diubah.');
     }
 
     /**
@@ -117,6 +118,6 @@ class MenuKantinController extends Controller
     {
         $menu->delete();
 
-         return redirect()->route('menu.index')->with('success', 'Menu berhasil dihapus.');
+         return redirect()->route('menus.index')->with('success', 'Menu berhasil dihapus.');
     }
 }

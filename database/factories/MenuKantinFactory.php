@@ -17,14 +17,15 @@ class MenuKantinFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             'kode_menu' => $this->faker->unique()->numerify('MENU-###'),
-            'nama_menu' => $this->faker->randomElement(['Nasi Goreng', 'Ayam Bakar', 'Es Teh Manis', 'Roti Bakar Cokelat', 'Mie Goreng', 'Jus Jeruk', 'Pisang Goreng', 'Sate Ayam', 'Es Campur', 'Donat', 'Nasi Uduk', 'Teh Tarik', 'Keripik Singkong', 'Ayam Geprek', 'Jus Alpukat', 'Kue Cubit', 'Nasi Padang', 'Es Kelapa Muda', 'Roti Isi Cokelat', 'Soto Ayam', 'Jus Mangga'] ),
+            'nama_menu' => $this->faker->randomElement(['Nasi Goreng', 'Ayam Bakar', 'Es Teh Manis', 'Roti Bakar Cokelat', 'Mie Goreng', 'Jus Jeruk', 'Pisang Goreng', 'Sate Ayam', 'Es Campur', 'Donat', 'Nasi Uduk', 'Teh Tarik', 'Keripik Singkong', 'Ayam Geprek', 'Jus Alpukat', 'Kue Cubit', 'Nasi Padang', 'Es Kelapa Muda', 'Roti Isi Cokelat', 'Soto Ayam', 'Jus Mangga', 'Bakso', 'Seblak', 'Batagor'] ),
             'kategori' => $this->faker->randomElement(['Makanan', 'Minuman','Snack']),
-            'harga' => $this->faker->randomFloat(10000, 20000),
+            'harga'    => $this->faker->numberBetween(10, 20) * 1000,
             'stok' => $this->faker->numberBetween(0, 100),
             'status' => $this->faker->randomElement(['Tersedia', 'Habis']),
-            'keterangan' => $this->faker->optional()->sentence(8),
+            'keterangan' => $this->faker->sentence(8),
         ];
     }
 }

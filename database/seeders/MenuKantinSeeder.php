@@ -14,4 +14,6 @@ class MenuKantinSeeder extends Seeder
     {
         \App\Models\MenuKantin::factory()->count(20)->create();
     }
+
+
 }

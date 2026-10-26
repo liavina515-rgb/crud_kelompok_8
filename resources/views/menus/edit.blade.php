@@ -2,9 +2,9 @@
 
 @section('content')
     <h1>Edit Menu</h1>
-    <form action="{{ route('menu.update', $menu->id) }}" method="POST">
+    <form action="{{ route('menus.update', $menu->id) }}" method="POST">
         @csrf
         @method('PUT')
-        @include('menu._form')
+        @include('menus._form')
     </form>
 @endsection

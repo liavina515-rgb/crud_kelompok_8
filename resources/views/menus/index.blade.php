@@ -2,6 +2,7 @@
 
 @section('content')
    <h1>Daftar Menu Kantin</h1>
+   <a href="{{ route('menus.create')}}">Create</a>
 
    <table class="table table-bordered table-striped">
      <thead>
@@ -13,6 +14,7 @@
             <th>Harga</th>
             <th>Stok</th>
             <th>Status</th>
+            <th>Keterangan</th>
         </tr>
      </thead>
      <tbody>
@@ -25,6 +27,7 @@
                     <td>Rp {{ number_format($menu->harga, 0, ',', '.') }}</td>
                     <td>{{ $menu->stok }}</td>
                     <td>{{ $menu->status }}</td>
+                    <td>{{ $menu->keterangan }}</td>
                 <td>
             <a href="{{ route('menus.edit', $menu->id) }}">Edit</a>
              <form action="{{ route('menus.destroy', $menu->id) }}" method="POST" style="display:inline">
