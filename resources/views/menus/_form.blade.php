@@ -1,20 +1,23 @@
-@foreach ($errors->all() as $error)
-    <p>{{ $error }}</p>
-@endforeach
+<label>Kode:</label>
+<input type="text" name="kode_menu" value="{{ $menu->kode_menu }}"><br><br>
 
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<label>Nama:</label>
+<input type="text" name="nama_menu" value="{{ $menu->nama_menu }}"><br><br>
+
+<label>Kategori:</label>
+<input type="text" name="kategori" value="{{ $menu->kategori }}"><br><br>
+
+<label>Harga:</label>
+<input type="number" name="harga" value="{{ $menu->harga }}"><br><br>
+
+<label>Stok:</label>
+<input type="number" name="stok" value="{{ $menu->stok }}"><br><br>
+
+<label>Status:</label>
+<select name="status">
+    <option value="Tersedia" {{ $menu->status == 'Tersedia' ? 'selected' : '' }}>Tersedia</option>
+    <option value="Habis" {{ $menu->status == 'Habis' ? 'selected' : '' }}>Habis</option>
+</select><br><br>
+
+<label>Keterangan:</label>
+<input type="text" name="keterangan" value="{{ $menu->keterangan }}">
