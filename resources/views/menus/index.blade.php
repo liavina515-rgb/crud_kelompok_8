@@ -1,47 +1,33 @@
-@extends('layouts.app')
+<h1>Menu Kantin</h1>
+<a href="{{ route('menus.create') }}" class="btn-warning" data-bs-placement="right">Tambah</a>
+<table  border="3">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">kode_menu</th>
+      <th scope="col">nama_menu</th>
+      <th scope="col">kategori</th>
+      <th scope="col">harga</th>
+      <th scope="col">stok</th>
+      <th scope="col">status</th>
+      <th scope="col">keterangan</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($menus as $key)
+    <tr>
 
-@section('content')
-   <h1>Daftar Menu Kantin</h1>
-   <a href="{{ route('menus.create')}}">Create</a>
-
-   <table class="table table-bordered table-striped">
-     <thead>
-        <tr>
-            <th>id</th>
-            <th>Kode_menu</th>
-            <th>Nama_menu</th>
-            <th>Kategori</th>
-            <th>Harga</th>
-            <th>Stok</th>
-            <th>Status</th>
-            <th>Keterangan</th>
-        </tr>
-     </thead>
-     <tbody>
-        @forelse($menus as $menu)
-          <tr>
-           <td>{{ $loop->iteration }}</td>
-                    <td>{{ $menu->kode_menu }}</td>
-                    <td>{{ $menu->nama_menu }}</td>
-                    <td>{{ $menu->kategori }}</td>
-                    <td>Rp {{ number_format($menu->harga, 0, ',', '.') }}</td>
-                    <td>{{ $menu->stok }}</td>
-                    <td>{{ $menu->status }}</td>
-                    <td>{{ $menu->keterangan }}</td>
-                <td>
-            <a href="{{ route('menus.edit', $menu->id) }}">Edit</a>
-             <form action="{{ route('menus.destroy', $menu->id) }}" method="POST" style="display:inline">
-                @csrf
-                @method('DELETE')
-            <button>Delete</button>
-            </td>
-          </tr>
-          @empty
-          <tr>
-            <td colspan="7" class="text-center">Belum ada data menu.</td>
-          </tr>
-          @endforelse
-     </tbody>
-   </table>
-   @endsection
-
+      <td>{{ $key->id }}</td>
+      <td>{{ $key->kode_menu }}</td>
+      <td>{{ $key->nama_menu}}</td>
+      <td>{{ $key->kategori}}</td>
+      <td>{{ $key->harga}}</td>
+      <td>{{ $key->stok}}</td>
+      <td>{{ $key->status}}</td>
+      <td>{{ $key->keterangan}}</td>
+   <td> <a href="{{ route('menus.edit', $key->id) }}" class="btn-warning">Edit</a> </td>
+   <td> <a href="{{ route('menus.destroy', $key->id) }}" class="btn-danger">Hapus</a> </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>

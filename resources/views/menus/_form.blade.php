@@ -2,18 +2,19 @@
     <p>{{ $error }}</p>
 @endforeach
 
-<p>Kode: <input type="text" name="kode_menu" value="{{ old('kode_menu', $menu->kode_menu ?? '') }}"></p>
-<p>Nama: <input type="text" name="nama_menu" value="{{ old('nama_menu', $menu->nama_menu ?? '') }}"></p>
-<p>Kategori: <input type="text" name="kategori" value="{{ old('kategori', $menu->kategori ?? '') }}"></p>
-<p>Harga: <input type="number" name="harga" step="1" value="{{ old('harga', (int) $menu->harga) }}">
-<p>Stok: <input type="number" name="stok" value="{{ old('stok', $menu->stok ?? '') }}"></p>
-<p>Status:
-    <select name="status">
-        <option value="Tersedia" @selected(old('status', $menu->status ?? '') == 'Tersedia')>Tersedia</option>
-        <option value="Habis" @selected(old('status', $menu->status ?? '') == 'Habis')>Habis</option>
-    </select>
-</p>
-<p>Keterangan: <input type="text" name="keterangan" value="{{ old('keterangan', $menu->keterangan ?? '') }}"></p>
-
-<button type="submit">Simpan</button>
-<a href="{{ route('menus.create') }}">Batal</a>
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
