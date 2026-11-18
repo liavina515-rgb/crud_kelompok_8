@@ -31,14 +31,11 @@
      class="m-8">
         @csrf
         @method('DELETE')
-
-        <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini? {{$key->nama_menu}}')"
-         class="btn btn-danger btn-sm bi bi-trash">Hapus</button>
+        <button>Hapus</button>
     </form>
      </td>
     </tr>
     @endforeach
-
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
