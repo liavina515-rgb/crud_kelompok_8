@@ -99,7 +99,7 @@ class MenuKantinController extends Controller
         $data = $request->validate([
         'kode_menu'  => ['required', 'string', Rule::unique(MenuKantin::class, 'kode_menu')->ignore($menu->id)],
         'nama_menu'  => 'required|string|max:100',
-        'kategori'   => 'required|string',
+        'kategori'   => 'required|in:Makanan,Minuman,Snack',
         'harga'      => 'required|integer|min:0',
         'stok'       => 'required|integer|min:0',
         'status'     => 'required|in:Tersedia,Habis',
@@ -111,13 +111,9 @@ class MenuKantinController extends Controller
     return redirect()->route('menus.index')->with('success', 'Menu berhasil diubah.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(MenuKantin $menu)
     {
         $menu->delete();
-
-         return redirect()->route('menus.index')->with('success', 'Menu berhasil dihapus.');
+        return redirect()->route('menus.index')->with('success', 'Menu berhasil dihapus.');
     }
-}
+    }
