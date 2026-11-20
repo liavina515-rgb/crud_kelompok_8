@@ -96,19 +96,9 @@ class MenuKantinController extends Controller
      */
     public function update(Request $request, MenuKantin $menu)
     {
-        $data = $request->validate([
-        'kode_menu'  => ['required', 'string', Rule::unique(MenuKantin::class, 'kode_menu')->ignore($menu->id)],
-        'nama_menu'  => 'required|string|max:100',
-        'kategori'   => 'required|in:Makanan,Minuman,Snack',
-        'harga'      => 'required|integer|min:0',
-        'stok'       => 'required|integer|min:0',
-        'status'     => 'required|in:Tersedia,Habis',
-        'keterangan' => 'nullable|string',
-    ]);
+        $menu->update($request->all());
 
-    $menu->update($data);
-
-    return redirect()->route('menus.index')->with('success', 'Menu berhasil diubah.');
+        return redirect()->route('menus.index')->with('success', 'Menu berhasil diubah.');
     }
 
     public function destroy(MenuKantin $menu)
